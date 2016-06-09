@@ -1,0 +1,15 @@
+name: 'Photos'
+description: 'Picture management module. Photo albums.'
+# core: 8.x
+package: 'photos'
+dependencies:
+  - file
+  - image
+  - node
+type: module
+
+# Information added by Drupal.org packaging script on 2016-06-07
+version: '8.x-4.0-alpha4'
+core: '8.x'
+project: 'photos'
+datestamp: 1465340940

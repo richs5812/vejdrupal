@@ -1,0 +1,23 @@
+photos_access.page:
+  path: '/privacy/pass/{node}'
+  defaults:
+    _title: 'Please enter password'
+    _controller: '\Drupal\photos_access\Controller\DefaultController::photos_access_page'
+  requirements:
+    _permission: 'access content'
+
+photos_access.admin_settings:
+  path: /admin/config/media/photos/privacy
+  defaults:
+    _title: Privacy
+    _form: \Drupal\photos_access\Form\PhotosAccessAdminSettings
+  requirements:
+    _permission: 'administer nodes'
+
+photos_access.multiple_users_autocomplete:
+  path: /photos-access/user/autocomplete/multiple
+  defaults:
+    _title: 'Multiple users autocomplete'
+    _controller: '\Drupal\photos_access\Controller\DefaultController::photos_access_multiple_users_autocomplete'
+  requirements:
+    _permission: 'access user profiles'

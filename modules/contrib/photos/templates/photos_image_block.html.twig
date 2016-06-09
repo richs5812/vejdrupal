@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Formats album image pager block.
+ */
+#}
+{% trans %}Uploaded on {{ created }} by {{ image.name }}{% endtrans %}
+<div class="photos-block-pager-title">
+  {% if image.slide_url %}
+    <a href="{{ image.slide_url }}" class="photos-block-pager-slide" title="{{ 'View as slideshow'|t }}"></a>
+  {% endif %}
+  <h3 class="photos-block-pager-name">
+    <a href="{{ user_url }}">{{ image.name }}</a>
+  </h3>
+</div>
+<div class="photos-pager">
+  <div class="photos-block-pager-left photos-pager-image">
+    {% if image.pager.prev_view %}
+      <a href="{{ image.pager.prev_url }}#image-load">{{ image.pager.prev_view }}</a>
+      <div class="photos-pager-link photos-prev">
+        <a href="{{ image.pager.prev_url }}#image-load">{{ 'previous'|t }}</a>
+      </div>
+    {% endif %}
+  </div>
+  <div class="photos-block-pager-center photos-pager-image">
+    {% if image.pager.current_view %}
+      {{ image.pager.current_view }}
+      <div>&#9650;</div>
+    {% endif %}
+  </div>
+  <div class="photos-block-pager-right photos-pager-image">
+    {% if image.pager.next_view %}
+      <a href="{{ image.pager.next_url }}#image-load">{{ image.pager.next_view }}</a>
+      <div class="photos-pager-link photos-next">
+        <a href="{{ image.pager.next_url }}#image-load">{{ 'next'|t }}</a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+<div class="photos-block-link">
+  {{ 'In'|t }} <a href="{{ album_url }}">{{ image.title }}</a>
+</div>
+{{ image.links }}
+{% if image.sub_album %}
+  <p class="photos-block-info">
+    {{ 'This photo also belongs to:'|t }}
+  </p>
+  {% for sub_album in image.sub_album %}
+    <div class="photos-block-sub">
+      <div class="photos-block-sub-title">
+        <div class="photos-block-sub-open" alt="{{ sub_album.geturl }}">&nbsp;</div>
+        <div class="photos-block-sub-name">
+          <a href="{{ sub_album.url }}" title="{{ sub_album.info }}">{{ sub_album.title }}</a>
+        </div>
+      </div>
+      <div class="photos-block-sub-body photos-block-sub-body-load"></div>
+    </div>
+  {% endfor %}
+{% endif %}

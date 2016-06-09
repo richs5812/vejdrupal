@@ -1,0 +1,192 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for the Photos module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function photos_schema() {
+  $schema['photos_album'] = array(
+    'fields' => array(
+      'pid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'fid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'wid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'count' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'data' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+        'size' => 'big'
+      )
+    ),
+    'indexes' => array(
+      'fid' => array('fid'),
+      'wid' => array('wid'),
+    ),
+    'primary key' => array('pid'),
+  );
+
+  $schema['photos_image'] = array(
+    'fields' => array(
+      'fid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'pid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'title' => array(
+        'description' => 'The title of this image.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'default' => '',
+      ),
+      'des' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+        'size' => 'big'
+      ),
+      'wid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'count' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'comcount' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'exif' => array(
+        'type' => 'int',
+        'size' => 'tiny',
+        'length' => 1,
+        'default' => 0
+      ),
+    ),
+    'indexes' => array(
+      'pid' => array('pid'),
+      'wid' => array('wid'),
+      'count' => array('count'),
+      'comcount' => array('comcount'),
+    ),
+    'primary key' => array('fid'),
+  );
+
+  $schema['photos_comment'] = array(
+    'fields' => array(
+      'fid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'cid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      )
+    ),
+    'indexes' => array(
+      'fid' => array('fid'),
+      'cid' => array('cid'),
+    )
+  );
+
+  $schema['photos_node'] = array(
+    'fields' => array(
+      'nid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'fid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ),
+      'wid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      )
+    ),
+    'indexes' => array(
+      'nid' => array('nid'),
+      'fid' => array('fid'),
+      'wid' => array('wid'),
+    )
+  );
+
+  $schema['photos_count'] = array(
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE
+      ),
+      'cid' => array(
+        'type' => 'int',
+        'default' => 0,
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'changed' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'type' => array(
+        'type' => 'varchar',
+        'length' => 12,
+        'default' => '',
+        'not null' => TRUE
+      ),
+      'value' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'indexes' => array(
+      'cid' => array('cid'),
+      'type' => array('type'),
+      'value' => array('value')
+    ),
+    'primary key' => array('id')
+  );
+  // $schema['cache_photos'] = drupal_get_schema_unprocessed('system', 'cache');
+
+  return $schema;
+}

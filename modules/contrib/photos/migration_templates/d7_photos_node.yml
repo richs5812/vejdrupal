@@ -1,0 +1,13 @@
+id: d7_photos_node
+label: Photos
+migration_tags:
+  - Drupal 7
+source:
+  plugin: photos_node
+process:
+  nid: nid
+  fid: fid
+  wid: wid
+destination:
+  plugin: photos_node
+  provider: photos

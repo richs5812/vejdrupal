@@ -1,0 +1,6 @@
+services:
+  photos.breadcrumb:
+    class: Drupal\photos\PhotosBreadcrumbBuilder
+    arguments: ['@entity.manager', '@access_manager', '@current_user']
+    tags:
+      - { name: breadcrumb_builder, priority: 701 }

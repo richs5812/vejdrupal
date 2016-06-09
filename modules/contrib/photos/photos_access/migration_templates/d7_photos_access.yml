@@ -1,0 +1,17 @@
+id: d7_photos_access
+label: Photos access
+migration_tags:
+  - Drupal 7
+source:
+  plugin: photos_access
+process:
+  id: id
+  nid: nid
+  viewid: viewid
+  pass: pass
+destination:
+  plugin: photos_access
+  provider: photos_access
+migration_dependencies:
+  optional:
+    - d7_node

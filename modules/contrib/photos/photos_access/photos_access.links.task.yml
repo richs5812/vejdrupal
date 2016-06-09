@@ -1,0 +1,3 @@
+photos_access.admin_settings:
+  route_name: photos_access.admin_settings
+  title: Privacy

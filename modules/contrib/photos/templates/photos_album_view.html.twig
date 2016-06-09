@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Formats album layout.
+ */
+#}
+{% if album.album_url is not empty or album.node_edit_url is not empty %}
+<div class="photos-album-menu">
+  {% if album.access.edit %}
+    {{ album.node_edit_url }}
+    {{ album.image_management_url }}
+  {% endif %}
+</div>
+{% endif %}
+{% if node_type == 'photos' %}
+  <div class="photos-album-header">
+    {% if album.cover %}
+      <div class="photos-album-cover">
+        {{ album.cover }}
+      </div>
+    {% endif %}
+    <div class="photos-album-right">
+      {% trans %}
+        {{ node.album.count }} image
+      {% plural node.album.count %}
+        {{ node.album.count }} images
+      {% endtrans %}
+      <div class="submitted">
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{{ album.links }}
+
+{{ pager }}
+
+{% for view in album.view %}
+  {{ view }}
+{% endfor %}
+
+{{ pager }}

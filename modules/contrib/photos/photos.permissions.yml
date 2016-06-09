@@ -1,0 +1,18 @@
+view photo:
+  title: 'View photos'
+create photo:
+  title: 'Create photos'
+edit own photo:
+  title: 'Edit own photos'
+delete own photo:
+  title: 'Delete own photos'
+edit any photo:
+  title: 'Edit any photo'
+delete any photo:
+  title: 'Delete any photo'
+allowed to vote:
+  title: 'Allowed to vote on photos'
+view vote list:
+  title: 'Allowed to view vote list'
+view original:
+  title: 'View original image'

@@ -10,10 +10,10 @@
       <a href="{{ image.url }}#image-load">{{ image.view }}</a>
     </div>
     <h2 class="photos-list-view-title{{ image.class.title_class }}"{{ image.id.title_edit }}>
-      {{ image.title }}
+      {#{ image.title }#}
     </h2>
     <div class="photos-list-view-des{{ image.class.des_class }}" {{ image.id.des_edit }}>{{ image.des }}</div>
-    <div class="photos-list-view-info">
+    {#<div class="photos-list-view-info">
 
       {% if image.ajax.del_link %}
         {{ image.ajax.del_link }}
@@ -43,7 +43,7 @@
         {{ image.links.comment }}
       {% endif %}
 
-    </div>
+    </div>#}
   </div>
 
 {% else %}

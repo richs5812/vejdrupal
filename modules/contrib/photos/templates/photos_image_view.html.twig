@@ -5,14 +5,14 @@
  */
 #}
 {% if display_type == 'list' %}
-  <div class="photos-image-list-view" {{ image.ajax.del_id }}>
+  <div class="photos-image-list-view" {{ image.ajax.del_id }} >
     <div class="photos-list-view-thumb">
-      <a href="{{ image.url }}#image-load">{{ image.view }}</a>
+      <a rel="example1" data-colorbox-inline=".photos-image img" href="{{ image.url }}#image-load">{{ image.view }}</a>
     </div>
-    <h2 class="photos-list-view-title{{ image.class.title_class }}"{{ image.id.title_edit }}>
-      {#{ image.title }#}
-    </h2>
-    <div class="photos-list-view-des{{ image.class.des_class }}" {{ image.id.des_edit }}>{{ image.des }}</div>
+    {# <h2 class="photos-list-view-title{{ image.class.title_class }}"{{ image.id.title_edit }}>
+      {{ image.title }}
+    </h2> #}
+    <div style="margin-bottom: 1em;" class="photos-list-view-des{{ image.class.des_class }}" {{ image.id.des_edit }}>{{ image.des }}</div>
     {#<div class="photos-list-view-info">
 
       {% if image.ajax.del_link %}
@@ -49,15 +49,16 @@
 {% else %}
 
   <div id="image-load" class="image-load">
-    <h2 class="photos-view-title{{ image.class.title_class }}"{{ image.id.title_edit}}>
+    {# <h2 class="photos-view-title{{ image.class.title_class }}"{{ image.id.title_edit}}>
       {{ image.title }}
-    </h2>
+    </h2> #}
+    <div class="photos-image">{{ image.view }}</div>
     <div class="photos-view-des{{ image.class.des_class }}"{{ image.id.des_edit }}>{{ image.des }}</div>
     <div class="photos-view-links">
       {% if image.vote %}
         {{ image.vote }}
       {% endif %}
-      <div class="photo-links-info">
+      {# <div class="photo-links-info">
 
         {% if image.ajax.del_link %}
           {{ image.ajax.del_link }}
@@ -89,7 +90,7 @@
           {{ image.links.more }}
         {% endif %}
 
-      </div>
+      </div> #}
     </div>
     <div class="photo-link-pager">
       {% if image.links.pager.prev_url %}
@@ -104,7 +105,6 @@
         </div>
       {% endif %}
     </div>
-    <div class="photos-image">{{ image.view }}</div>
   </div>
   {% if image.comment.view %}
     {{ image.comment.view }}

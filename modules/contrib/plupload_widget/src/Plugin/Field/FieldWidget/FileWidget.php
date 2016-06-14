@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\plupload_widget\Plugin\Field\FieldWidget\FileWidget.
- */
-
 namespace Drupal\plupload_widget\Plugin\Field\FieldWidget;
 
 use Drupal\Component\Utility\NestedArray;
@@ -22,6 +17,7 @@ use Drupal\file\Element\ManagedFile;
 use Drupal\file\Entity\File;
 use Drupal\Component\Utility\Xss;
 use Drupal\file\Plugin\Field\FieldWidget\FileWidget as CoreFileWidget;
+use Drupal\plupload_widget\Plugin\Field\FieldWidget\PluploadWidgetTrait;
 
 use Drupal\plupload_widget\UploadConfiguration;
 
@@ -39,41 +35,12 @@ use Symfony\Component\Validator\ConstraintViolationListInterface;
  */
 class FileWidget extends CoreFileWidget {
 
-  /**
-   * Get the optimum chunk size.
-   */
-  public function getChunkSize() {
-    // 500 Kb per chunk does not sound bad...
-    $good_size = 1024 * 500;
-    // This is what the PLUPLOAD module
-    // field element takes as the default
-    // chunk size.
-    $size = Bytes::toInt(ini_get('post_max_size'));
-    if ($size > $good_size)
-      $size = $good_size;
-    return $size;
-  }
-
-  /**
-   * Returns the maximum configured
-   * file size for the Field stroage
-   * in Bytes.
-   *
-   * @return double|int
-   */
-  public function getMaxFileSize() {
-    // We don't care about PHP's max post
-    // or upload file size because we use
-    // plupload.
-    $size = $this->getFieldSetting('max_filesize');
-    $size = Bytes::toInt($size);
-    return $size;
-  }
+  use PluploadWidgetTrait;
 
   /**
    * Override to replace the upload/file HTML control
    * with the PLUPLOAD form element.
-   * 
+   *
    */
   public static function process($element, FormStateInterface $form_state, $form) {
 
@@ -117,7 +84,7 @@ class FileWidget extends CoreFileWidget {
         'runtimes' => 'html5,flash,silverlight,html4',
         'chunk_size' => $configuration->chunk_size . 'b',
         'max_file_size' => $configuration->max_size . 'b',
-        'max_file_count' => $configuration->max_files,
+        'max_file_count' => 1,
       ],
       '#event_callbacks' => [
         'FilesAdded' => 'Drupal.plupload_widget.filesAddedCallback',
@@ -146,9 +113,9 @@ class FileWidget extends CoreFileWidget {
     $config = new UploadConfiguration();
     $config->cardinality = $field_definition->getCardinality();
     $config->upload_location = $items[0]->getUploadLocation();
-    $config->validators  = $items[0]->getUploadValidators();
-    $config->chunk_size  = $this->getChunkSize();
-    $config->max_size  = $this->getMaxFileSize();
+    $config->validators = $items[0]->getUploadValidators();
+    $config->chunk_size = $this->getChunkSize();
+    $config->max_size = $this->getMaxFileSize();
 
     $element['#upload_configuration'] = serialize($config);
 

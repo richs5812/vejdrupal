@@ -20,7 +20,7 @@
         .once('init-colorbox')
         .colorbox(settings.colorbox);
 
-      $(".colorbox_group").colorbox({rel:'group', maxWidth:"100%"});
+      $(".colorbox_group").colorbox({rel:'group', maxWidth:"85%", maxHeight:"95%"});
 
     }
   };

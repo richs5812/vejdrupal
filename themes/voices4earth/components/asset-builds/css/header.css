@@ -3,9 +3,9 @@
 }
 
 .header__logo {
-  float: left;
-  margin: 0 10px 0 0;
+  display: block;
   padding: 0;
+  overflow: auto;
 }
 
 [dir="rtl"] .header__logo {
@@ -14,11 +14,10 @@
 }
 
 .header__logo-image {
-  vertical-align: bottom;
-}
-
-.header__name-and-slogan {
-  float: left;
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  margin: auto;
 }
 
 .header__site-name {
@@ -37,6 +36,7 @@
 .header__site-slogan {
   margin: 0;
   font-style: italic;
+  text-align: center;
 }
 
 .header__secondary-menu {

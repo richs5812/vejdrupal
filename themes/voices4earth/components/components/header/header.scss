@@ -9,15 +9,16 @@
 .header,
 %header {
 
-  //border: 1px solid red;
   margin-top: .25em;
   //text-align: center;
 
   // Wrapping link for logo.
   &__logo {
-    float: left;
-    margin: 0 10px 0 0;
+    display: block;
+    //float: left;
+    //margin: auto;
     padding: 0;
+    overflow: auto;
 
     @include rtl() {
       float: right;
@@ -27,12 +28,15 @@
 
   // Logo image.
   &__logo-image {
-    vertical-align: bottom;
+    display: block;
+    width: 300px;
+		max-width: 100%;
+    margin: auto;
   }
 
   // Wrapper for website name and slogan.
   &__name-and-slogan {
-    float: left;
+    //float: left;
   }
 
 
@@ -58,8 +62,10 @@
 
   // The slogan (or tagline) of a website.
   &__site-slogan {
+    //border: 1px solid red;
     margin: 0;
     font-style: italic;
+    text-align: center;
   }
 
   // The secondary menu (login, etc.)

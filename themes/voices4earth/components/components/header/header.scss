@@ -8,6 +8,11 @@
 
 .header,
 %header {
+
+  //border: 1px solid red;
+  margin-top: .25em;
+  //text-align: center;
+
   // Wrapping link for logo.
   &__logo {
     float: left;
@@ -29,6 +34,8 @@
   &__name-and-slogan {
     float: left;
   }
+
+
 
   // The name of the website.
   &__site-name {

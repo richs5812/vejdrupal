@@ -10,11 +10,27 @@
 %header {
 
   margin-top: .25em;
+
+  @media (min-width: 945px) {
+		//border: 2px solid green;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-content: space-between;
+
+		img {
+			margin-right: 5%;
+		}
+
+		p {
+			padding: 0;
+		}
+	}
   //text-align: center;
 
   // Wrapping link for logo.
   &__logo {
-    display: block;
+    //display: block;
     //float: left;
     //margin: auto;
     padding: 0;
@@ -32,6 +48,12 @@
     width: 300px;
 		max-width: 100%;
     margin: auto;
+
+   /* @media (min-width: 1000px) {
+      display: inline;
+      border: 1px solid red;
+    }*/
+
   }
 
   // Wrapper for website name and slogan.

@@ -48,10 +48,9 @@
 {{ attach_library('voices4earth/layouts') }}
 <div class="layout-center">
 
-  <header class="header" role="banner">
+  {# <header class="header" role="banner"> #}
     {{ page.header }}
-    {{ page.secondary_menu }}
-  </header>
+  {# </header> #}
 
   <div class="layout-3col">
 
@@ -75,6 +74,7 @@
     {% endif %}
 
     <div class="layout-3col__full">
+      {{ page.secondary_menu }}
       {{ page.primary_menu }}
     </div>
 

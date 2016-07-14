@@ -107,7 +107,7 @@ component-libraries:
 regions:
   header: Header
   primary_menu: Primary menu
-  secondary_menu: Secondary menu
+  mission_statement: Mission Statement
   highlighted: Highlighted
   breadcrumb: Breadcrumb
   title: Title

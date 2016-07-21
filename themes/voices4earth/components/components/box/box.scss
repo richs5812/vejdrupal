@@ -86,3 +86,18 @@
 //     @extend %box__title;
 //   }
 // }
+
+.block-views-blockcontent-recent-block-1 {
+
+    box-shadow: 0 0 10px 0 gray inset;
+    padding: 1em;
+    width: 400px;
+    //border: 1px solid green;
+    max-width: 95%;
+    height: 600px;
+    overflow-y: auto;
+
+    ul {
+      list-style-type: none;
+    }
+}

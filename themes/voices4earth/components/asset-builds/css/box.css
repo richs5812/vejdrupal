@@ -16,4 +16,17 @@
   border-color: #0072b9;
 }
 
+.block-views-blockcontent-recent-block-1 {
+  box-shadow: 0 0 10px 0 gray inset;
+  padding: 1em;
+  width: 400px;
+  max-width: 95%;
+  height: 600px;
+  overflow-y: auto;
+}
+
+.block-views-blockcontent-recent-block-1 ul {
+  list-style-type: none;
+}
+
 /*# sourceMappingURL=box.css.map */

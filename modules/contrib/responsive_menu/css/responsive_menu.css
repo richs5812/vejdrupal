@@ -30,7 +30,7 @@ html.mm-opened .mm-page {
   margin-right: 0;
   margin-bottom: 0;
   margin-left: 0;
-  padding: .5em 0;
+  padding: 0;
   list-style: none;
   width: 100%;
   background-color: #1e0033;
@@ -39,12 +39,24 @@ html.mm-opened .mm-page {
 .horizontal-menu > li {
   display: inline-block;
   position: relative;
+  padding: 0;
+}
+
+.horizontal-menu > li:last-of-type > a {
+  background-color: gold;
+  color: #1e0033;
+}
+
+.horizontal-menu > li:last-of-type > a:hover {
+  background-color: yellow;
+  transition: background-color .25s;
 }
 
 .horizontal-menu > li > a:hover,
 .horizontal-menu > li.active-trail > a {
+  background-color: #f3edf8;
+  color: #1e0033;
 }
-
 
 .horizontal-menu > li ul ul {
   left: 13.75em;
@@ -57,10 +69,11 @@ html.mm-opened .mm-page {
 
 .horizontal-menu > li > a {
   display: block;
-  padding-top: 0.3em;
+  padding: 14px 16px;
+  /*padding-top: 0.3em;
   padding-right: 1em;
   padding-bottom: 0.35em;
-  padding-left: 1em;
+  padding-left: 1em;*/
   color: #f3edf8;
   text-decoration: none;
 }
@@ -76,14 +89,16 @@ html.mm-opened .mm-page {
   padding-bottom: 0;
   padding-left: 0;
   box-sizing: border-box;
-  width: 13.75em;
+  width: 12em;
   list-style: none;
+  margin: 0;
 }
 
 .horizontal-menu li.sfHover > ul,
 .horizontal-menu li:hover > ul {
   display: block;
-  background-color: #1e0033;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .horizontal-menu li li {
@@ -97,15 +112,21 @@ html.mm-opened .mm-page {
   display: block;
 }
 
+.horizontal-menu > li:hover > a, .horizontal-menu > li > ul > li:hover {
+  background-color: #f3edf8;
+  color: #1e0033;
+}
+
 .horizontal-menu > li li > a {
     display: block;
     position: relative;
-    padding-top: 0.25em;
+    /*padding-top: 0.25em;
     padding-right: 1em;
     padding-bottom: 0.25em;
-    padding-left: 1em;
+    padding-left: 1em;*/
+    padding: 12px 16px;
     text-transform: none;
-    color: #f3edf8;
+    color: #1e0033;
     text-decoration: none;
 }
 
@@ -142,7 +163,7 @@ html.mm-opened .mm-page {
   text-transform: uppercase;
   top: 2px;
   left: 40px;
-  color: black;
+  color: #1e0033;
 }
 
 .responsive-menu-toggle-icon:before,

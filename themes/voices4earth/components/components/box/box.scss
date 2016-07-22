@@ -87,7 +87,10 @@
 //   }
 // }
 
-.block-views-blockcontent-recent-block-1 {
+//custom block styling
+
+//latest blog posts and latest photos
+.view-display-id-block_1 {
 
     box-shadow: 0 0 10px 0 gray inset;
     padding: 1em;
@@ -99,5 +102,79 @@
 
     ul {
       list-style-type: none;
+      margin: 0;
+      padding: 0;
+      word-wrap: break-word;
+      z-index: -1;
+
+      .views-field-title {
+        //font-size: 1.25em;
+        font-weight: bold;
+
+        a:link {
+          text-decoration: none;
+        }
+      }
+
+      li {
+        margin: .25em;
+        padding: 0;
+      }
+
     }
+}
+
+//front page donation appeal
+#block-donationappeal {
+	border: 1px solid black;
+	text-align: center;
+	background-color: #fafa9e;
+
+	img {
+		vertical-align: middle;
+		margin-left: .25em;
+	}
+	padding-bottom: 1em;
+	margin-top: 1em;
+}
+
+//mailchimp
+div.mc-field-group {
+	input[type=text], input[type=email] {
+		font-size: 1em;
+		padding: 4px;
+		margin: .5em 0;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		width: 100%;
+	}
+}
+
+div#mc_embed_signup {
+	background-color: #e6e6e6;
+	padding: .5em 1em 1em;
+	margin: 1em 0;
+    border-radius: 4px;
+    max-width: 400px;
+    display: block;
+
+    @media (min-width: 945px) {
+		display: inline-block;
+	}
+
+}
+
+//footer
+#block-footerorginfo-2 {
+	background-color: #1e0033;
+	color: #f3edf8;
+	padding: 1em;
+	margin: 4em 0 0;
+
+  @media (min-width: 768px) {
+    div {
+       width: 85%;
+       margin: auto;
+     }
+	}
 }

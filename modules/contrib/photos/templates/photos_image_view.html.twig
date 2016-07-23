@@ -8,7 +8,7 @@
   <div class="photos-image-list-view" {{ image.ajax.del_id }} >
     <div id="{{ image.fid }}">
       <div class="photos-list-view-thumb">
-        <a class="colorbox_group" href="/Sites/vejdrupal/sites/default/files/styles/large/public/photos/image_1/{{ image.title }}" title="{{ image.des }}">{{ image.view }}</a>
+        <a class="colorbox_group" href="/Sites/vejdrupal/sites/default/files/styles/large/public/photos/image_1/{{ image.title }}" title="{{ image.des }}"><img src="/Sites/vejdrupal/sites/default/files/styles/medium/public/photos/image_1/{{ image.title }}" alt="{{ image.title }}" /></a>
         <div>
           <a href="/Sites/vejdrupal/sites/default/files/photos/image_1/{{ image.title }}">View original</a>
         </div>
@@ -18,37 +18,29 @@
       </h2> #}
       <div style="margin-bottom: 1em;" class="photos-list-view-des{{ image.class.des_class }}" {{ image.id.des_edit }}>{{ image.des }}</div>
     </div>
-    <div class="photos-list-view-info">
-
+    {#<div class="photos-list-view-info">
       {% if image.ajax.del_link %}
         {{ image.ajax.del_link }}
       {% endif %}
-
       {% if image.ajax.edit_link %}
         {{ image.ajax.edit_link }}
       {% endif %}
-
       {% if image.links.vote %}
         {{ image.links.vote }}
       {% endif %}
-
-      {# {% if image.links.info %}
+      {% if image.links.info %}
         {{ image.links.info }}
-      {% endif %} #}
-
+      {% endif %}
       {% if image.links.count %}
         {{ image.links.count }}
       {% endif %}
-
       {% if image.links.cover %}
         {{ image.links.cover }}
       {% endif %}
-
-     {# {% if image.links.comment %}
+      {% if image.links.comment %}
         {{ image.links.comment }}
-      {% endif %} #}
-
-    </div>
+      {% endif %}
+    </div>#}
   </div>
 
 {% else %}
@@ -63,39 +55,31 @@
       {% if image.vote %}
         {{ image.vote }}
       {% endif %}
-       <div class="photo-links-info">
-
+      {# <div class="photo-links-info">
         {% if image.ajax.del_link %}
           {{ image.ajax.del_link }}
         {% endif %}
-
         {% if image.ajax.edit_link %}
           {{ image.ajax.edit_link }}
         {% endif %}
-
         {% if image.links.to_sub %}
           {{ image.links.to_sub }}
         {% endif %}
-
         {% trans %}
           {{ image.count }} visit
         {% plural image.count %}
           {{ image.count }} visits
         {% endtrans %}
-
         {% if image.links.comment %}
           {{ image.links.comment }}
         {% endif %}
-
         {% if image.links.cover %}
           {{ image.links.cover }}
         {% endif %}
-
         {% if image.links.more %}
           {{ image.links.more }}
         {% endif %}
-
-      </div>
+      </div> #}
     </div>
     <div class="photo-link-pager">
       {% if image.links.pager.prev_url %}

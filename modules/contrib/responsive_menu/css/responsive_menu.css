@@ -169,7 +169,7 @@ html.mm-opened .mm-page {
 .responsive-menu-toggle-icon:before,
 .responsive-menu-toggle-icon:after,
 .responsive-menu-toggle-icon span.icon {
-  background: black;
+  background-color: #1e0033;
   content: '';
   display: block;
   width: 20px;

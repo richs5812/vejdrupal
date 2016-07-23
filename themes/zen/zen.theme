@@ -39,7 +39,7 @@ function zen_theme(&$existing, $type, $theme, $path) {
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
- */
+
 function zen_theme_suggestions_page_alter(array &$suggestions, array $variables) {
   // If on an individual node page, add the node type to theme suggestions.
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
@@ -52,7 +52,7 @@ function zen_theme_suggestions_page_alter(array &$suggestions, array $variables)
       $suggestions[] = 'page__node__edit__' . $node->bundle();
     }
   }
-}
+}*/
 
 /**
  * Implements hook_pre_render_HOOK() for menu-local-tasks templates.

@@ -3,6 +3,39 @@
   src: url(../../../../../sites/default/files/fonts/open-sans/OpenSans-Regular.ttf);
 }
 
+a.header__logo:link {
+  text-decoration: none;
+}
+
+a.header__logo:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a.header__logo:hover {
+  text-decoration: none;
+}
+
+a.header__logo:active {
+  text-decoration: none;
+  color: black;
+}
+
+.header {
+  /* &__site-link {
+    &:link,
+    &:visited {
+      color: color(text);
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }*/
+}
+
 .header__logo {
   padding: 0;
   overflow: auto;
@@ -26,15 +59,6 @@
 
 .header__site-name {
   margin: 0;
-}
-
-.header__site-link:link, .header__site-link:visited {
-  color: #000;
-  text-decoration: none;
-}
-
-.header__site-link:hover, .header__site-link:focus {
-  text-decoration: underline;
 }
 
 .header__site-slogan {

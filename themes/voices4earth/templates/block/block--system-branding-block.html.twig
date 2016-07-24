@@ -14,21 +14,21 @@
  */
 #}
 {% block content %}
-<header class="header {{modifier_class}} clearfix" role="banner">
-  {% if site_logo %}
-    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="header__logo">
-      <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="header__logo-image"/>
-    </a>
-  {% endif %}
-    <div class="header__name-and-slogan">
-    {% if site_name %}
-      <h1 class="header__site-name">
-        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="header__site-link">{{ site_name }}</a>
-      </h1>
+<a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="header__logo">
+  <header class="header {{modifier_class}} clearfix" role="banner">
+    {% if site_logo %}
+        <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="header__logo-image"/>
     {% endif %}
-    {% if site_slogan %}
-      <div class="header__site-slogan">{{ site_slogan }}</div>
-    {% endif %}
-    </div>
-</header>
+      <div class="header__name-and-slogan">
+      {% if site_name %}
+        <h1 class="header__site-name">
+          <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="header__site-link">{{ site_name }}</a>
+        </h1>
+      {% endif %}
+      {% if site_slogan %}
+        <div class="header__site-slogan">{{ site_slogan }}</div>
+      {% endif %}
+      </div>
+  </header>
+</a>
 {% endblock %}

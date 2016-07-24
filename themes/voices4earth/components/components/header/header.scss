@@ -6,6 +6,25 @@
 //
 // Style guide: components.header
 
+
+a.header__logo:link {
+  text-decoration: none;
+}
+
+a.header__logo:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a.header__logo:hover {
+  text-decoration: none;
+}
+
+a.header__logo:active {
+  text-decoration: none;
+  color: black;
+}
+
 .header,
 %header {
 
@@ -48,7 +67,7 @@
   }
 
   // The link around the name of the website.
-  &__site-link {
+ /* &__site-link {
     &:link,
     &:visited {
       color: color(text);
@@ -59,7 +78,7 @@
     &:focus {
       text-decoration: underline;
     }
-  }
+  }*/
 
   // The slogan (or tagline) of a website.
   &__site-slogan {

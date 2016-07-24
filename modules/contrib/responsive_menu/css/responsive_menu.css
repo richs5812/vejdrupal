@@ -45,6 +45,7 @@ html.mm-opened .mm-page {
 .horizontal-menu > li:last-of-type > a {
   background-color: gold;
   color: #1e0033;
+  transition: background-color .25s;
 }
 
 .horizontal-menu > li:last-of-type > a:hover {

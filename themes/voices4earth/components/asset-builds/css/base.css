@@ -1,3 +1,14 @@
+@font-face {
+  font-family: OpenSans;
+  src: url(../../../../../sites/default/files/fonts/open-sans/OpenSans-Regular.ttf);
+}
+
+/*
+@font-face {
+	font-family: OpenSans;
+	src: url(../fonts/open-sans/OpenSans-Regular.ttf);
+}
+*/
 * {
   box-sizing: border-box;
 }
@@ -5,7 +16,7 @@
 html {
   font-size: 100%;
   line-height: 1.5em;
-  font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+  font-family: OpenSans, Geneva, sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   min-height: 100%;
@@ -104,6 +115,7 @@ h1 {
   line-height: 3rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 h2 {
@@ -111,6 +123,7 @@ h2 {
   line-height: 2.25rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 h3 {
@@ -118,6 +131,7 @@ h3 {
   line-height: 2.25rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 h4 {
@@ -125,6 +139,7 @@ h4 {
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 h5 {
@@ -132,6 +147,7 @@ h5 {
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 h6 {
@@ -139,6 +155,7 @@ h6 {
   line-height: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 abbr[title] {

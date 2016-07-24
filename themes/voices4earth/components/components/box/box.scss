@@ -97,8 +97,31 @@ body {
 	//display: flex;
 	//flex-direction: column-reverse;
 	height: 100%;
+	word-wrap: break-word;
 	//background-color: red;
 	//border: 1px solid blue;
+}
+
+main.layout-3col__left-content {
+  padding-right: 2em;
+}
+
+article h2 {
+  a:link {
+      text-decoration: none;
+  }
+
+  a:visited {
+      text-decoration: none;
+  }
+
+  a:hover {
+      text-decoration: underline;
+  }
+
+  a:active {
+      text-decoration: underline;
+  }
 }
 
 .mm-page {
@@ -118,7 +141,29 @@ div#not-footer {
 
 //custom block styling
 
+//mission statement
+#block-missionstatement {
+	@media (min-width: 851px) {
+		max-width: 800px;
+		margin: .5em auto 0;
+	}
+}
+
 //latest blog posts and latest photos
+
+#block-views-block-content-recent-block-1-2, #block-views-block-latest-photos-block-1 {
+    margin-top: 2em;
+    h2 {
+      @include type-layout(xl, 1.5);
+      @include margin-top(1, xl);
+      @include margin-bottom(1, xl);
+      font-style: italic;
+      font-size: 1.17em;
+      margin-bottom: .5em;
+      font-family: OpenSans, Tahoma, Geneva, sans-serif;
+    }
+}
+
 .view-display-id-block_1 {
 
     box-shadow: 0 0 10px 0 gray inset;
@@ -128,22 +173,31 @@ div#not-footer {
     max-width: 95%;
     height: 600px;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     z-index: 1;
 
     ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
-      word-wrap: break-word;
       z-index: -1;
 
       .views-field-title {
-        //font-size: 1.25em;
+        font-size: 1.1em;
         font-weight: bold;
+        margin: .5em auto;
 
         a:link {
           text-decoration: none;
         }
+      }
+
+      .views-field-body {
+        p {
+          margin: 0;
+        }
+
+        margin-bottom: 1em;
       }
 
       li {
@@ -164,7 +218,7 @@ div#not-footer {
 		vertical-align: middle;
 		margin-left: .25em;
 	}
-	padding-bottom: 1em;
+	padding-bottom: .5em;
 	margin-top: 1em;
 }
 

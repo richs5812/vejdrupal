@@ -9,25 +9,6 @@
 .header,
 %header {
 
-  margin-top: .25em;
-
-  @media (min-width: 945px) {
-		//border: 2px solid green;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		align-content: space-between;
-
-		img {
-			margin-right: 5%;
-		}
-
-		p {
-			padding: 0;
-		}
-	}
-  //text-align: center;
-
   // Wrapping link for logo.
   &__logo {
     //display: block;
@@ -47,7 +28,7 @@
     display: block;
     width: 300px;
 		max-width: 100%;
-    margin: auto;
+    margin: 0 auto 1em;
 
    /* @media (min-width: 1000px) {
       display: inline;
@@ -60,8 +41,6 @@
   &__name-and-slogan {
     //float: left;
   }
-
-
 
   // The name of the website.
   &__site-name {
@@ -88,6 +67,9 @@
     margin: 0;
     font-style: italic;
     text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.25em;
+    margin-bottom: 1.5em;
   }
 
   // The secondary menu (login, etc.)
@@ -103,5 +85,23 @@
   &__region {
     // Clear the logo.
     clear: both;
+  }
+
+  @media (min-width: 851px) {
+    margin-top: .25em;
+		//border: 2px solid green;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-content: space-between;
+
+		&__logo-image {
+			margin: 0 1em .25em;
+		}
+
+		&__site-slogan {
+			padding: 0;
+			margin: 0;
+		}
   }
 }

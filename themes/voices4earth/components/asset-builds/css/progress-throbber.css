@@ -1,3 +1,8 @@
+@font-face {
+  font-family: OpenSans;
+  src: url(../../../../../sites/default/files/fonts/open-sans/OpenSans-Regular.ttf);
+}
+
 .progress-throbber,
 .ajax-progress {
   display: inline-block;

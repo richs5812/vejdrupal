@@ -1,23 +1,6 @@
-.header {
-  margin-top: .25em;
-}
-
-@media (min-width: 945px) {
-  .header {
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-            align-items: center;
-    align-content: space-between;
-  }
-  .header img {
-    margin-right: 5%;
-  }
-  .header p {
-    padding: 0;
-  }
+@font-face {
+  font-family: OpenSans;
+  src: url(../../../../../sites/default/files/fonts/open-sans/OpenSans-Regular.ttf);
 }
 
 .header__logo {
@@ -34,7 +17,7 @@
   display: block;
   width: 300px;
   max-width: 100%;
-  margin: auto;
+  margin: 0 auto 1em;
   /* @media (min-width: 1000px) {
       display: inline;
       border: 1px solid red;
@@ -58,6 +41,9 @@
   margin: 0;
   font-style: italic;
   text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.25em;
+  margin-bottom: 1.5em;
 }
 
 .header__secondary-menu {
@@ -70,6 +56,26 @@
 
 .header__region {
   clear: both;
+}
+
+@media (min-width: 851px) {
+  .header {
+    margin-top: .25em;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    align-content: space-between;
+  }
+  .header__logo-image {
+    margin: 0 1em .25em;
+  }
+  .header__site-slogan {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 /*# sourceMappingURL=header.css.map */

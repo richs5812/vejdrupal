@@ -1,3 +1,8 @@
+@font-face {
+  font-family: OpenSans;
+  src: url(../../../../../sites/default/files/fonts/open-sans/OpenSans-Regular.ttf);
+}
+
 .box {
   margin-bottom: 1.5rem;
   border: 5px solid #cccccc;
@@ -22,6 +27,27 @@ html {
 
 body {
   height: 100%;
+  word-wrap: break-word;
+}
+
+main.layout-3col__left-content {
+  padding-right: 2em;
+}
+
+article h2 a:link {
+  text-decoration: none;
+}
+
+article h2 a:visited {
+  text-decoration: none;
+}
+
+article h2 a:hover {
+  text-decoration: underline;
+}
+
+article h2 a:active {
+  text-decoration: underline;
 }
 
 .mm-page {
@@ -38,6 +64,28 @@ div#not-footer {
           flex: 1 0 auto;
 }
 
+@media (min-width: 851px) {
+  #block-missionstatement {
+    max-width: 800px;
+    margin: .5em auto 0;
+  }
+}
+
+#block-views-block-content-recent-block-1-2, #block-views-block-latest-photos-block-1 {
+  margin-top: 2em;
+}
+
+#block-views-block-content-recent-block-1-2 h2, #block-views-block-latest-photos-block-1 h2 {
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  font-size: 1.17em;
+  margin-bottom: .5em;
+  font-family: OpenSans, Tahoma, Geneva, sans-serif;
+}
+
 .view-display-id-block_1 {
   box-shadow: 0 0 10px 0 gray inset;
   padding: 1em;
@@ -45,6 +93,7 @@ div#not-footer {
   max-width: 95%;
   height: 600px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   z-index: 1;
 }
 
@@ -52,16 +101,25 @@ div#not-footer {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  word-wrap: break-word;
   z-index: -1;
 }
 
 .view-display-id-block_1 ul .views-field-title {
+  font-size: 1.1em;
   font-weight: bold;
+  margin: .5em auto;
 }
 
 .view-display-id-block_1 ul .views-field-title a:link {
   text-decoration: none;
+}
+
+.view-display-id-block_1 ul .views-field-body {
+  margin-bottom: 1em;
+}
+
+.view-display-id-block_1 ul .views-field-body p {
+  margin: 0;
 }
 
 .view-display-id-block_1 ul li {
@@ -73,7 +131,7 @@ div#not-footer {
   border: 1px solid black;
   text-align: center;
   background-color: #fafa9e;
-  padding-bottom: 1em;
+  padding-bottom: .5em;
   margin-top: 1em;
 }
 

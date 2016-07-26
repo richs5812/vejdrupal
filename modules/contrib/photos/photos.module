@@ -2719,9 +2719,9 @@ function photos_views_data() {
   );
 
   // Image title.
-  $data['photos_image']['title'] = array(
-    'title' => t('Image title'),
-    'help' => t('The title for this image.'),
+  $data['photos_image']['des'] = array(
+    'title' => t('Image description'),
+    'help' => t('The description for this image.'),
     'field' => array(
       'id' => 'standard'
     ),
@@ -2732,9 +2732,9 @@ function photos_views_data() {
       'handler' => 'string',
     ),
   );
-
+/*
   // Image description.
-  $data['photos_image']['des'] = array(
+  $data['photos_image']['title'] = array(
     'title' => t('Image description'),
     'help' => t('The description for this image.'),
     'area' => array(
@@ -2745,7 +2745,7 @@ function photos_views_data() {
       'label' => t('Has Description'),
       'type' => 'yes-no',
     ),
-  );
+  );*/
 
   // Image weight.
   $data['photos_image']['wid'] = array(
@@ -2883,8 +2883,8 @@ function photos_search_execute($keys = NULL, $conditions = NULL) {
 // Calling _theme() directly can alter the expected output and potentially
 // introduce security issues (see https://www.drupal.org/node/2195739). You
 // should use renderable arrays instead.
-// 
-// 
+//
+//
 // @see https://www.drupal.org/node/2195739
 // $results[] = array(
 //       'link' => url('photos/image/' . $item->sid, array('absolute' => TRUE)),

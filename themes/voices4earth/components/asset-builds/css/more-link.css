@@ -4,11 +4,11 @@
 }
 
 .more-link {
-  text-align: right;
+  text-align: left;
 }
 
 [dir="rtl"] .more-link {
-  text-align: left;
+  text-align: right;
 }
 
 /*# sourceMappingURL=more-link.css.map */

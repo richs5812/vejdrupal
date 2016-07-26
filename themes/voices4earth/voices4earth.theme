@@ -110,16 +110,20 @@ function voices4earth_preprocess_block(&$variables, $hook) {
  * @param string $hook
  *   The name of the template being rendered ("node" in this case.)
  */
-/* -- Delete this line if you want to use this function
+
 function voices4earth_preprocess_node(&$variables, $hook) {
-  $variables['sample_variable'] = t('Lorem ipsum.');
+  $variables['date'] = date("n/j/y", $variables['node']->getCreatedTime());
+
+/*function mytheme_preprocess_node(&$vars, $hook) {
+$vars['submitted'] = date("l, M jS, Y", $vars['created']);
+}*/
 
   // Optionally, run node-type-specific preprocess functions, like
   // voices4earth_preprocess_node_page() or voices4earth_preprocess_node_story().
-  $function = __FUNCTION__ . '_' . $variables['node']->type;
+  /*$function = __FUNCTION__ . '_' . $variables['node']->type;
   if (function_exists($function)) {
     $function($variables, $hook);
-  }
+  }*/
 }
 // */
 

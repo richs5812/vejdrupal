@@ -18,15 +18,15 @@
       </h2> #}
       <div style="margin-bottom: 1em;" class="photos-list-view-des{{ image.class.des_class }}" {{ image.id.des_edit }}>{{ image.des }}</div>
     </div>
-    {<div class="photos-list-view-info">
+    <div class="photos-list-view-info">
       {% if image.ajax.del_link %}
         {{ image.ajax.del_link }}
       {% endif %}
       {% if image.ajax.edit_link %}
         {{ image.ajax.edit_link }}
       {% endif %}
-      {% if image.links.vote %}
-        {{ image.links.vote }}
+     {# {% if image.links.vote %}
+         {{ image.links.vote }}
       {% endif %}
       {% if image.links.info %}
         {{ image.links.info }}
@@ -39,7 +39,7 @@
       {% endif %}
       {% if image.links.comment %}
         {{ image.links.comment }}
-      {% endif %}
+      {% endif %} #}
     </div>
   </div>
 

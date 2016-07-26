@@ -10,9 +10,9 @@
 
 .more-link,
 %more-link {
-  text-align: right;
+  text-align: left;
 
   @include rtl() {
-    text-align: left;
+    text-align: right;
   }
 }

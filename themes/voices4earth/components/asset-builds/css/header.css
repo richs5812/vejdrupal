@@ -5,6 +5,7 @@
 
 a.header__logo:link {
   text-decoration: none;
+  color: black;
 }
 
 a.header__logo:visited {
@@ -14,6 +15,7 @@ a.header__logo:visited {
 
 a.header__logo:hover {
   text-decoration: none;
+  color: black;
 }
 
 a.header__logo:active {

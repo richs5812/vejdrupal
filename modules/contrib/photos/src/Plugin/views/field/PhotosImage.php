@@ -73,11 +73,11 @@ class PhotosImage extends FieldPluginBase {
     if (!$picture_fid) {
       $node = $values->_entity;
       // Get first image for cover photo.
-      if ($node && $node->getType() == 'photos') {
+      /*if ($node && $node->getType() == 'photos') {
         $nid = $node->id();
         $picture_fid = db_query("SELECT fid FROM {photos_image} WHERE pid = :nid ORDER BY fid ASC",
           array(':nid' => $nid))->fetchField();
-      }
+      }*/
     }
 
     if ($image_style && $picture_fid) {
@@ -113,8 +113,11 @@ class PhotosImage extends FieldPluginBase {
       // Get album id and link to album page.
       $node = $values->_entity;
       $nid = $node->id();
+      $album_id = db_query("SELECT pid FROM {photos_image} WHERE fid = :nid",
+          array(':nid' => $nid))->fetchField();
+      //var_dump($album_id);
       $image = \Drupal::service('renderer')->render($render_image);
-      $link_href = 'base:photos/album/' . $nid;
+      $link_href = 'base:photos/album/' . $album_id;
       $render_image = array(
         '#type' => 'link',
         '#title' => $image,

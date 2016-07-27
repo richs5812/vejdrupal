@@ -14,19 +14,19 @@
 {% endif %}
 {% if node_type == 'photos' %}
   <div class="photos-album-header">
-    {% if album.cover %}
+    {# {% if album.cover %}
       <div class="photos-album-cover">
         {{ album.cover }}
       </div>
-    {% endif %}
+    {% endif %} #}
     <div class="photos-album-right">
       {% trans %}
         {{ node.album.count }} image
       {% plural node.album.count %}
-        {{ node.album.count }} images
+        {{ node.album.count }} images (click an image for slideshow)
       {% endtrans %}
       <div class="submitted">
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+       {# {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %} #}
       </div>
     </div>
   </div>

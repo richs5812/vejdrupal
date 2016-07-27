@@ -463,7 +463,7 @@ function photos_node_links_alter(array &$links, NodeInterface $node, array &$con
     $node_links = array();
     if (\Drupal::currentUser()->hasPermission('view photo') && (isset($node->subalbum['count']) || isset($node->album['count']))) {
       if ($node_type == 'photos') {
-        $title = t('Album view');
+        $title = t('View album');
         $type = 'album';
       }
       else {
@@ -606,7 +606,7 @@ function _photos_node_view($node, $display, $view_mode) {
         $more_link = array(
           '#type' => 'more_link',
           '#url' => Url::fromUri('base:photos/album/' . $node->id()),
-          '#title' => t('Album view')
+          '#title' => t('View album')
         );
         $album .= drupal_render($more_link);
     break;

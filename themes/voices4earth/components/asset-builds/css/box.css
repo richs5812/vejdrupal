@@ -86,6 +86,10 @@ div#not-footer {
   font-family: OpenSans, Tahoma, Geneva, sans-serif;
 }
 
+.views-field-des {
+  margin-bottom: 1em;
+}
+
 .view-display-id-block_1 {
   box-shadow: 0 0 10px 0 gray inset;
   padding: 1em;

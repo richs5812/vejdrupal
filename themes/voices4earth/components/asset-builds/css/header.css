@@ -38,6 +38,10 @@ a.header__logo:active {
   }*/
 }
 
+.header a {
+  color: black;
+}
+
 .header__logo {
   padding: 0;
   overflow: auto;

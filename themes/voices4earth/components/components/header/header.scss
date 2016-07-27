@@ -6,7 +6,6 @@
 //
 // Style guide: components.header
 
-
 a.header__logo:link {
   text-decoration: none;
   color: black;
@@ -29,6 +28,10 @@ a.header__logo:active {
 
 .header,
 %header {
+
+a {
+  color: black;
+}
 
   // Wrapping link for logo.
   &__logo {

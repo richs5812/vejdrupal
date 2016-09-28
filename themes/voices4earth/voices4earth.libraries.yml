@@ -102,6 +102,11 @@ messages:
     component:
       components/asset-builds/css/messages.css: {}
 
+misc:
+  css:
+    component:
+      components/asset-builds/css/misc.css: {}
+
 more-link:
   css:
     component:

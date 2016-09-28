@@ -91,6 +91,7 @@ options.styleGuide = {
     path.relative(options.rootPath.styleGuide, options.theme.css + 'inline-links.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'inline-sibling.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'messages.css'),
+    path.relative(options.rootPath.styleGuide, options.theme.css + 'misc.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'print-none.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'responsive-video.css'),
     path.relative(options.rootPath.styleGuide, options.theme.css + 'visually-hidden.css'),

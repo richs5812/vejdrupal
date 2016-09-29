@@ -1,0 +1,35 @@
+@font-face {
+  font-family: OpenSans;
+  src: url(../../../../../sites/default/files/fonts/open-sans/OpenSans-Regular.ttf);
+}
+
+#block-contactblock {
+  padding: 1em;
+  background-color: #1d1d1d;
+  color: #e0daae;
+}
+
+@media (min-width: 851px) {
+  #block-contactblock {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+#block-contactblock form {
+  padding: 0 1em 1em;
+  border-style: solid;
+  border-color: #e0daae;
+  border-width: 2px;
+}
+
+#block-contactblock form input, #block-contactblock form textarea {
+  border: none;
+  background-color: #e0daae;
+  color: black;
+  padding: 4px;
+}
+
+#block-contactblock form input[type=submit]:hover {
+  background-color: #817831;
+}

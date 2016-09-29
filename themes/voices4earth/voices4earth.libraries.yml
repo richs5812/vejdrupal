@@ -155,6 +155,11 @@ responsive-video:
     component:
       components/asset-builds/css/responsive-video.css: {}
 
+rsvp-form:
+  css:
+    component:
+      components/asset-builds/css/rsvp-form.css: {}
+
 skip-link:
   css:
     component:

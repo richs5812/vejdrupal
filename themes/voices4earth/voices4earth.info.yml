@@ -80,6 +80,7 @@ libraries:
   - voices4earth/navbar
   - voices4earth/pager
   - voices4earth/misc
+  - voices4earth/rsvp-form
 
 
 # This section is used by the contrib module, Component Libraries. It allows you

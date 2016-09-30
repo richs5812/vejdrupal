@@ -1,24 +1,37 @@
 @import 'init';
 
 $fancy-gold: hsl(53, 45%, 78%);
-$fancy-gold-dark: hsl(53, 45%, 35%);
+$fancy-gold-dark: hsl(53, 45%, 55%);
+$fancy-gold-darker: hsl(53, 45%, 35%);
 
-#block-contactblock {
+#block-contactblock, #block-rsvppaymentinfo {
 	@media (min-width: 851px) {
 		max-width: 800px;
-		margin: 0 auto;
 	}
 
+  margin: 1em auto 0;
 	padding: 1em;
 
-	background-color: rgb(29,29,29);
+	background-color: rgb(29, 29, 29);
 	color: $fancy-gold;
+}
 
+#block-contactblock{
 	form {
 	  padding: 0 1em 1em;
     border-style: solid;
     border-color: $fancy-gold;
     border-width: 2px;
+
+    label {
+      display: inline;
+      font-weight: normal;
+      color: $fancy-gold;
+    }
+
+    textarea {
+      width: 25em;
+    }
 
     input, textarea {
       border: none;
@@ -30,8 +43,34 @@ $fancy-gold-dark: hsl(53, 45%, 35%);
        padding: 4px;
     }
 
+    input[type=text], input[type=email] {
+      	width: 15em;
+    }
+
+    input[type=number] {
+      	width: 3em;
+    }
+
+    input[type=submit] {
+      padding: .5em;
+    }
+
     input[type=submit]:hover {
       background-color: $fancy-gold-dark;
     }
+
+    input[type=submit]:active {
+      background-color: $fancy-gold-darker;
+    }
+  }
+}
+
+#block-rsvppaymentinfo {
+  div#payment-info {
+    margin: .5em;
+    padding: 1em;
+    border-style: solid;
+    border-color: $fancy-gold;
+    border-width: 2px;
   }
 }

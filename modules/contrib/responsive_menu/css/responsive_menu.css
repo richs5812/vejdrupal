@@ -53,6 +53,26 @@ html.mm-opened .mm-page {
   transition: background-color .25s;
 }
 
+.horizontal-menu > li:nth-last-of-type(2) {
+  background-color: hsl(0, 0%, 11%);
+}
+
+.horizontal-menu > li:nth-last-of-type(2) > a {
+  padding: 7px 8px;
+  margin: 4px;
+  background-color: hsl(0, 0%, 11%);
+  color: hsl(53, 45%, 78%);
+  border-style: solid;
+  border-color: hsl(53, 45%, 78%);
+  border-width: 2px;
+  transition: background-color .25s;
+}
+
+.horizontal-menu > li:nth-last-of-type(2):hover, .horizontal-menu > li:nth-last-of-type(2):hover > a, .horizontal-menu > li > ul > li:nth-last-of-type(2):hover {
+  background-color: hsl(0, 0%, 30%);
+  color: hsl(53, 45%, 78%);
+}
+
 .horizontal-menu > li > a:hover,
 .horizontal-menu > li.active-trail > a {
   background-color: #f3edf8;

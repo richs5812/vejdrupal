@@ -68,7 +68,8 @@ html.mm-opened .mm-page {
   transition: background-color .25s;
 }
 
-.horizontal-menu > li:nth-last-of-type(2):hover, .horizontal-menu > li:nth-last-of-type(2):hover > a, .horizontal-menu > li > ul > li:nth-last-of-type(2):hover {
+.horizontal-menu > li:nth-last-of-type(2):hover, .horizontal-menu > li:nth-last-of-type(2):hover > a
+{
   background-color: hsl(0, 0%, 30%);
   color: hsl(53, 45%, 78%);
 }

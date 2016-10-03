@@ -4,7 +4,10 @@ $fancy-gold: hsl(53, 45%, 78%);
 $fancy-gold-dark: hsl(53, 45%, 55%);
 $fancy-gold-darker: hsl(53, 45%, 35%);
 
-#block-contactblock, #block-rsvppaymentinfo {
+#block-contactblock,
+#block-contactblock-2,
+#block-rsvppaymentinfo,
+#block-rsvppaymentinfo-2 {
 	@media (min-width: 851px) {
 		max-width: 800px;
 	}
@@ -16,7 +19,8 @@ $fancy-gold-darker: hsl(53, 45%, 35%);
 	color: $fancy-gold;
 }
 
-#block-contactblock{
+#block-contactblock,
+#block-contactblock-2 {
 	form {
 	  padding: 0 1em 1em;
     border-style: solid;
@@ -43,7 +47,8 @@ $fancy-gold-darker: hsl(53, 45%, 35%);
        padding: 4px;
     }
 
-    input[type=text], input[type=email] {
+    input[type=text],
+    input[type=email] {
       	width: 15em;
     }
 
@@ -65,7 +70,8 @@ $fancy-gold-darker: hsl(53, 45%, 35%);
   }
 }
 
-#block-rsvppaymentinfo {
+#block-rsvppaymentinfo,
+#block-rsvppaymentinfo-2 {
   div#payment-info {
     margin: .5em;
     padding: 1em;

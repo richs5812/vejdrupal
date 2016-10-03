@@ -3,7 +3,10 @@
   src: url(../../../../../sites/default/files/fonts/open-sans/OpenSans-Regular.ttf);
 }
 
-#block-contactblock, #block-rsvppaymentinfo {
+#block-contactblock,
+#block-contactblock-2,
+#block-rsvppaymentinfo,
+#block-rsvppaymentinfo-2 {
   margin: 1em auto 0;
   padding: 1em;
   background-color: #1d1d1d;
@@ -11,56 +14,72 @@
 }
 
 @media (min-width: 851px) {
-  #block-contactblock, #block-rsvppaymentinfo {
+  #block-contactblock,
+  #block-contactblock-2,
+  #block-rsvppaymentinfo,
+  #block-rsvppaymentinfo-2 {
     max-width: 800px;
   }
 }
 
-#block-contactblock form {
+#block-contactblock form,
+#block-contactblock-2 form {
   padding: 0 1em 1em;
   border-style: solid;
   border-color: #e0daae;
   border-width: 2px;
 }
 
-#block-contactblock form label {
+#block-contactblock form label,
+#block-contactblock-2 form label {
   display: inline;
   font-weight: normal;
   color: #e0daae;
 }
 
-#block-contactblock form textarea {
+#block-contactblock form textarea,
+#block-contactblock-2 form textarea {
   width: 25em;
 }
 
-#block-contactblock form input, #block-contactblock form textarea {
+#block-contactblock form input, #block-contactblock form textarea,
+#block-contactblock-2 form input,
+#block-contactblock-2 form textarea {
   border: none;
   background-color: #e0daae;
   color: black;
   padding: 4px;
 }
 
-#block-contactblock form input[type=text], #block-contactblock form input[type=email] {
+#block-contactblock form input[type=text],
+#block-contactblock form input[type=email],
+#block-contactblock-2 form input[type=text],
+#block-contactblock-2 form input[type=email] {
   width: 15em;
 }
 
-#block-contactblock form input[type=number] {
+#block-contactblock form input[type=number],
+#block-contactblock-2 form input[type=number] {
   width: 3em;
 }
 
-#block-contactblock form input[type=submit] {
+#block-contactblock form input[type=submit],
+#block-contactblock-2 form input[type=submit] {
   padding: .5em;
 }
 
-#block-contactblock form input[type=submit]:hover {
+#block-contactblock form input[type=submit]:hover,
+#block-contactblock-2 form input[type=submit]:hover {
   background-color: #c0b459;
 }
 
-#block-contactblock form input[type=submit]:active {
+#block-contactblock form input[type=submit]:active,
+#block-contactblock-2 form input[type=submit]:active {
   background-color: #817831;
 }
 
-#block-rsvppaymentinfo div#payment-info {
+#block-rsvppaymentinfo div#payment-info,
+#block-rsvppaymentinfo-2 div#payment-info {
   margin: .5em;
   padding: 1em;
   border-style: solid;

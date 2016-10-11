@@ -2,15 +2,18 @@
 
 namespace Drupal\colorbox\Plugin\Field\FieldFormatter;
 
-use Drupal\colorbox\ElementAttachmentInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Link;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
 use Drupal\image\Entity\ImageStyle;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Cache\Cache;
+use Drupal\colorbox\ElementAttachmentInterface;
 use Drupal\image\Plugin\Field\FieldFormatter\ImageFormatterBase;
 
 /**
@@ -27,11 +30,17 @@ use Drupal\image\Plugin\Field\FieldFormatter\ImageFormatterBase;
  */
 class ColorboxFormatter extends ImageFormatterBase implements ContainerFactoryPluginInterface {
 
+  /**
+   * The current user.
+   *
+   * @var \Drupal\Core\Session\AccountInterface
+   */
+  protected $currentUser;
 
   /**
    * The image style entity storage.
    *
-   * @var \Drupal\Core\Entity\EntityStorageInterface
+   * @var \Drupal\image\ImageStyleStorageInterface
    */
   protected $imageStyleStorage;
 
@@ -52,11 +61,14 @@ class ColorboxFormatter extends ImageFormatterBase implements ContainerFactoryPl
    *   The view mode.
    * @param array $third_party_settings
    *   Any third party settings settings.
+   * @param \Drupal\Core\Session\AccountInterface $current_user
+   *   The current user.
    * @param \Drupal\colorbox\ElementAttachmentInterface $attachment
    *   Allow the library to be attached to the page.
    */
-  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, EntityStorageInterface $image_style_storage, ElementAttachmentInterface $attachment) {
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, AccountInterface $current_user, EntityStorageInterface $image_style_storage, ElementAttachmentInterface $attachment) {
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
+    $this->currentUser = $current_user;
     $this->imageStyleStorage = $image_style_storage;
     $this->attachment = $attachment;
   }
@@ -73,6 +85,7 @@ class ColorboxFormatter extends ImageFormatterBase implements ContainerFactoryPl
       $configuration['label'],
       $configuration['view_mode'],
       $configuration['third_party_settings'],
+      $container->get('current_user'),
       $container->get('entity.manager')->getStorage('image_style'),
       $container->get('colorbox.attachment')
     );
@@ -100,30 +113,40 @@ class ColorboxFormatter extends ImageFormatterBase implements ContainerFactoryPl
     $image_styles = image_style_options(FALSE);
     $image_styles_hide = $image_styles;
     $image_styles_hide['hide'] = $this->t('Hide (do not display image)');
+    $description_link = Link::fromTextAndUrl(
+      $this->t('Configure Image Styles'),
+      Url::fromRoute('entity.image_style.collection')
+    );
 
     $element['colorbox_node_style'] = array(
-      '#title' => $this->t('Content image style'),
+      '#title' => $this->t('Image style for content'),
       '#type' => 'select',
       '#default_value' => $this->getSetting('colorbox_node_style'),
       '#empty_option' => $this->t('None (original image)'),
       '#options' => $image_styles_hide,
-      '#description' => $this->t('Image style to use in the content.'),
+      '#description' => $description_link->toRenderable() + [
+        '#access' => $this->currentUser->hasPermission('administer image styles')
+      ],
     );
     $element['colorbox_node_style_first'] = array(
-      '#title' => $this->t('Content image style for first image'),
+      '#title' => $this->t('Image style for first image in content'),
       '#type' => 'select',
       '#default_value' => $this->getSetting('colorbox_node_style_first'),
       '#empty_option' => $this->t('No special style.'),
       '#options' => $image_styles,
-      '#description' => $this->t('Image style to use in the content for the first image.'),
+      '#description' => $description_link->toRenderable() + [
+        '#access' => $this->currentUser->hasPermission('administer image styles')
+      ],
     );
     $element['colorbox_image_style'] = array(
-      '#title' => $this->t('Colorbox image style'),
+      '#title' => $this->t('Image style for Colorbox'),
       '#type' => 'select',
       '#default_value' => $this->getSetting('colorbox_image_style'),
       '#empty_option' => $this->t('None (original image)'),
       '#options' => $image_styles,
-      '#description' => $this->t('Image style to use in the Colorbox.'),
+      '#description' => $description_link->toRenderable() + [
+        '#access' => $this->currentUser->hasPermission('administer image styles')
+      ],
     );
 
     $gallery = array(
@@ -153,16 +176,31 @@ class ColorboxFormatter extends ImageFormatterBase implements ContainerFactoryPl
         ),
       ),
     );
-    $element['colorbox_token_gallery'] = array(
-      '#type' => 'fieldset',
-      '#title' => $this->t('Replacement patterns'),
-      '#description' => '<strong class="error">' . $this->t('For token support the <a href="@token_url">token module</a> must be installed.', array('@token_url' => 'http://drupal.org/project/token')) . '</strong>',
-      '#states' => array(
-        'visible' => array(
-          ':input[name$="[settings_edit_form][settings][colorbox_gallery]"]' => array('value' => 'custom'),
+    if (\Drupal::moduleHandler()->moduleExists('token')) {
+      $element['colorbox_token_gallery'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Replacement patterns'),
+        '#theme' => 'token_tree_link',
+        '#token_types' => array($form['#entity_type'], 'file'),
+        '#states' => array(
+          'visible' => array(
+            ':input[name$="[settings_edit_form][settings][colorbox_gallery]"]' => array('value' => 'custom'),
+          ),
         ),
-      ),
-    );
+      );
+    }
+    else {
+      $element['colorbox_token_gallery'] = array(
+        '#type' => 'fieldset',
+        '#title' => $this->t('Replacement patterns'),
+        '#description' => '<strong class="error">' . $this->t('For token support the <a href="@token_url">token module</a> must be installed.', array('@token_url' => 'http://drupal.org/project/token')) . '</strong>',
+        '#states' => array(
+          'visible' => array(
+            ':input[name$="[settings_edit_form][settings][colorbox_gallery]"]' => array('value' => 'custom'),
+          ),
+        ),
+      );
+    }
 
     $caption = array(
       'auto' =>  $this->t('Automatic'),
@@ -189,16 +227,31 @@ class ColorboxFormatter extends ImageFormatterBase implements ContainerFactoryPl
         ),
       ),
     );
-    $element['colorbox_token_caption'] = array(
-      '#type' => 'fieldset',
-      '#title' => $this->t('Replacement patterns'),
-      '#description' => '<strong class="error">' . $this->t('For token support the <a href="@token_url">token module</a> must be installed.', array('@token_url' => 'http://drupal.org/project/token')) . '</strong>',
-      '#states' => array(
-        'visible' => array(
-          ':input[name$="[settings_edit_form][settings][colorbox_caption]"]' => array('value' => 'custom'),
+    if (\Drupal::moduleHandler()->moduleExists('token')) {
+      $element['colorbox_token_caption'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Replacement patterns'),
+        '#theme' => 'token_tree_link',
+        '#token_types' => array($form['#entity_type'], 'file'),
+        '#states' => array(
+          'visible' => array(
+            ':input[name$="[settings_edit_form][settings][colorbox_caption]"]' => array('value' => 'custom'),
+          ),
         ),
-      ),
-    );
+      );
+    }
+    else {
+      $element['colorbox_token_caption'] = array(
+        '#type' => 'fieldset',
+        '#title' => $this->t('Replacement patterns'),
+        '#description' => '<strong class="error">' . $this->t('For token support the <a href="@token_url">token module</a> must be installed.', array('@token_url' => 'http://drupal.org/project/token')) . '</strong>',
+        '#states' => array(
+          'visible' => array(
+            ':input[name$="[settings_edit_form][settings][colorbox_caption]"]' => array('value' => 'custom'),
+          ),
+        ),
+      );
+    }
 
     return $element;
   }
@@ -346,7 +399,6 @@ class ColorboxFormatter extends ImageFormatterBase implements ContainerFactoryPl
         $dependencies[$style->getConfigDependencyKey()][] = $style->getConfigDependencyName();
       }
     }
-
     return $dependencies;
   }
 

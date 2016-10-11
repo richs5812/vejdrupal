@@ -34,7 +34,8 @@ function template_preprocess_colorbox_formatter(&$variables) {
 
   // Build the caption.
   $entity_title = $entity->label();
-  $entity_type = $entity->bundle();
+  $entity_type = $entity->getEntityTypeId();
+  $entity_bundle = $entity->bundle();
 
   switch ($settings['colorbox_caption']) {
      case 'auto':
@@ -79,7 +80,7 @@ function template_preprocess_colorbox_formatter(&$variables) {
 
   // Build the gallery id.
   $id = $entity->id();
-  $entity_id = !empty($id) ? $entity_type . '-' . $id : 'entity-id';
+  $entity_id = !empty($id) ? $entity_bundle . '-' . $id : 'entity-id';
   $field_name = $item->getParent()->getName();
 
   switch ($settings['colorbox_gallery']) {

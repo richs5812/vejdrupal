@@ -74,6 +74,7 @@ class ColorboxAttachment implements ElementAttachmentInterface {
         'next' => $this->settings->get('custom.text_next'),
         'close' => $this->settings->get('custom.text_close'),
         'overlayClose' => $this->settings->get('custom.overlayclose') ? TRUE : FALSE,
+        'returnFocus' => $this->settings->get('custom.returnfocus') ? TRUE : FALSE,
         'maxWidth' => $this->settings->get('custom.maxwidth'),
         'maxHeight' => $this->settings->get('custom.maxheight'),
         'initialWidth' => $this->settings->get('custom.initialwidth'),

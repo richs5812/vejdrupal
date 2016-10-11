@@ -166,6 +166,13 @@ class ColorboxSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Enable closing Colorbox by clicking on the background overlay.'),
       '#states' => $this->getState(static::STATE_CUSTOM_SETTINGS),
     );
+    $form['colorbox_custom_settings']['colorbox_returnfocus'] = array(
+      '#type' => 'checkbox',
+      '#title' => $this->t('Return focus'),
+      '#default_value' => $config->get('custom.returnfocus'),
+      '#description' => $this->t('Return focus when Colorbox exits to the element it was launched from.'),
+      '#states' => $this->getState(static::STATE_CUSTOM_SETTINGS),
+    );
     $form['colorbox_custom_settings']['colorbox_fixed'] = array(
       '#type' => 'checkbox',
       '#title' => $this->t('Fixed'),
@@ -243,14 +250,14 @@ class ColorboxSettingsForm extends ConfigFormBase {
       '#title' => $this->t('Mobile detection'),
       '#options' => array(1 => $this->t('On'), 0 => $this->t('Off')),
       '#default_value' => $config->get('advanced.mobile_detect'),
-      '#description' => $this->t('If on (default) Colorbox will not be active for devices with a the max width set below.'),
+      '#description' => $this->t('If on (default) Colorbox will not be active for devices with the max width set below.'),
     );
     $form['colorbox_advanced_settings']['colorbox_mobile_device_width'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Device with'),
+      '#title' => $this->t('Device width'),
       '#default_value' => $config->get('advanced.mobile_device_width'),
       '#size' => 30,
-      '#description' => $this->t('Set the mobile device max with. Default: 480px.'),
+      '#description' => $this->t('Set the mobile device max width. Default: 480px.'),
       '#states' => array(
         'visible' => array(
           ':input[name="colorbox_mobile_detect"]' => array('value' => '1'),
@@ -306,6 +313,7 @@ class ColorboxSettingsForm extends ConfigFormBase {
       ->set('custom.text_next', $form_state->getValue('colorbox_text_next'))
       ->set('custom.text_close', $form_state->getValue('colorbox_text_close'))
       ->set('custom.overlayclose', $form_state->getValue('colorbox_overlayclose'))
+      ->set('custom.returnfocus', $form_state->getValue('colorbox_returnfocus'))
       ->set('custom.maxwidth', $form_state->getValue('colorbox_maxwidth'))
       ->set('custom.maxheight', $form_state->getValue('colorbox_maxheight'))
       ->set('custom.initialwidth', $form_state->getValue('colorbox_initialwidth'))
@@ -319,7 +327,7 @@ class ColorboxSettingsForm extends ConfigFormBase {
       ->set('custom.slideshow.text_stop', $form_state->getValue('colorbox_text_stop'))
       ->set('advanced.unique_token', $form_state->getValue('colorbox_unique_token'))
       ->set('advanced.mobile_detect', $form_state->getValue('colorbox_mobile_detect'))
-      ->set('advanced.mobile_detect_width', $form_state->getValue('colorbox_mobile_device_width'))
+      ->set('advanced.mobile_device_width', $form_state->getValue('colorbox_mobile_device_width'))
       ->set('advanced.caption_trim', $form_state->getValue('colorbox_caption_trim'))
       ->set('advanced.caption_trim_length', $form_state->getValue('colorbox_caption_trim_length'))
       ->set('advanced.compression_type', $form_state->getValue('colorbox_compression_type'));

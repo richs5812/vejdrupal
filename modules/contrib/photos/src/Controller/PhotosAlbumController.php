@@ -119,7 +119,9 @@ class PhotosAlbumController {
       $image->view = $image_view_array;
 
       // Image link.
-      $image->url = Url::fromUri('base:photos/image/' . $image->fid)->toString();
+//       start custom code
+      $image->url = Url::fromUri('base:')->toString();
+//       end custom code
 
       if ($com) {
         $image->links['comment'] = array(

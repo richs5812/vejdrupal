@@ -8,9 +8,9 @@
   <div class="photos-image-list-view" {{ image.ajax.del_id }} >
     <div id="{{ image.fid }}">
       <div class="photos-list-view-thumb">
-        <a class="colorbox_group" href="/sites/default/files/styles/large/public/photos/image_1/{{ image.title }}" title="{{ image.des }}"><img src="/sites/default/files/styles/medium/public/photos/image_1/{{ image.title }}" alt="{{ image.title }}" /></a>
+        <a class="colorbox_group" href="{{ image.url }}/sites/default/files/styles/large/public/photos/image_1/{{ image.title }}" title="{{ image.des }}">{{ image.view }}</a>
         <div>
-          <a href="/sites/default/files/photos/image_1/{{ image.title }}">View original</a>
+          <a href="{{ image.url }}/sites/default/files/photos/image_1/{{ image.title }}">View original</a>
         </div>
       </div>
       {# <h2 class="photos-list-view-title{{ image.class.title_class }}"{{ image.id.title_edit }}>

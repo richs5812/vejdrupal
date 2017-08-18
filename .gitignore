@@ -44,3 +44,4 @@ core/phpunit.xml
 
 /libraries/plupload/js/Moxie.swf
 /libraries/colorbox/i18n/
+/.htaccess
